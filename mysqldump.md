@@ -118,11 +118,13 @@ The script below allows you to export and zip each individual database at the sa
 
 while read line
 do 
-   echo "exporting $line ......"
-   mysqldump --user="username" --password="password" --routines $line | gzip > $line.sql &
+   echo "Exporting $line ......"
+   mysqldump --user="username" --password="password" --routines $line | gzip > $line.sql.gz &
 done < databases_list.txt 
 
 wait 
+
+echo "All exports are done"
 ```
 
 If you have too many databases, do not export all at the same time, you can limit the number to 10 at the same time.  [Here is another script `multiThread.py` I wrote ](https://github.com/bennzhang/python-multithread-multiprocess/) to allow you to do that. Just create the `cmd_list` based on this and replace the `cmd_list` array with the console outputs.
