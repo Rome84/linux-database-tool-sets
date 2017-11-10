@@ -36,4 +36,16 @@ find . -type f -name "*.txt" -cnewer /tmp/day_$DATE_TIME1 ! -cnewer /tmp/day_$DA
 ```
 
 ### find last 15 minutes files until now
+```
 find . -type f -mmin -15
+```
+
+### find exclude paths
+```
+find /path/to/dir -name "*.xml" -not -path "exclude_path1/*" -not -path "exclude_path2/*"  -not -path "exclude_path3/*"
+```
+
+### find multiple different extensions
+```
+find /path/to/dir -name "*.xml" -o -name "*.properties"
+```
